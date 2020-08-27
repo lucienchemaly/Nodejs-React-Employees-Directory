@@ -9,8 +9,8 @@
 
 const passport         = require('passport');
 const LocalStrategy    = require('passport-local');
-const validatePassword = require('../utils/validatePassword');
-const User            = require('../models').User;
+const validatePassword = require('../src/app/utils/validatePassword.js');
+const User            = require('../src/database/models/index.js').User;
 
 passport.use(new LocalStrategy({
 	usernameField: 'user[email]',

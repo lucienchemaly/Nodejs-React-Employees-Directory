@@ -11,7 +11,7 @@ const express    = require('express');
 const bodyParser = require('body-parser');
 const session    = require('express-session');
 const cors       = require('cors');
-const models     = require('./models');
+const models     = require('./src/database/models');
 
 /* Make all variables from our .env file available in our process */
 require('dotenv').config();
@@ -28,7 +28,7 @@ app.use(session({ secret: process.env.SESSION_SECRET, cookie: { maxAge: 60000 },
 require('./config/passport');
 
 /* Here we define the api routes */
-app.use(require('./routes'));
+app.use(require('./src/app/routes'));
 
 const port = process.env.PORT || 3000;
 const address = process.env.SERVER_ADDRESS || '127.0.0.1';

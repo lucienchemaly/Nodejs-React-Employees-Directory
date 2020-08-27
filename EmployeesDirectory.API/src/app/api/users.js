@@ -10,9 +10,9 @@
  const Joi         = require('joi');
 const passport    = require('passport');
 const router      = require('express').Router();
-const auth        = require('../auth');
-const generateJWT = require('../../utils/generateJWT');
-const User        = require('../../models').User;
+const auth        = require('../routes/auth');
+const generateJWT = require('../utils/generateJWT');
+const User        = require('../../database/models').User;
 
 const userSchema = Joi.object().keys({
 	username: Joi.string().alphanum().min(3).max(30).optional(),

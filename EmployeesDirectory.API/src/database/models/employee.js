@@ -10,32 +10,34 @@
 const uuid = require('uuid/v4');
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-	let User = sequelize.define('User', {
+	let Employee = sequelize.define('Employee', {
 		id: {
 			allowNull: false,
 			primaryKey: true,
 			type: DataTypes.UUID,
 			defaultValue: () => uuid()
 		},
-		name: DataTypes.STRING,
-		surname: DataTypes.STRING,
+		firstName: DataTypes.STRING,
+		lastName: DataTypes.STRING,
 		email: {
+			type: DataTypes.STRING,
+			allowNull: true
+		},
+		dob: {
 			type: DataTypes.STRING,
 			allowNull: false
 		},
-		password: {
+		phoneNumber: {
+		type: DataTypes.STRING,
+		allowNull: true
+		},
+		jobTitle: {
+		type: DataTypes.STRING,
+		allowNull: true
+		},
+		prefix:{
 			type: DataTypes.STRING,
-			allowNull: false
-		}
-	},
-	{
-		indexes: [
-			{
-				unique: true,
-				fields: ['email']
-			}
-		]
-	});
-    
-	return User;
+		},
+	});   
+	return Employee;
 };
