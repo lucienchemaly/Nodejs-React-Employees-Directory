@@ -1,0 +1,35 @@
+$default-color: #230d5d !default; //for example
+
+.c-home{
+    //  background-image: url(https://www.accuv.com/wp-content/uploads/2019/02/back-1920x1019.png);
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    .test{
+        .btn{
+            display: inline-block;
+            border: 2px solid #12f9e3;
+            color: #12f9e3;
+            padding: 17px 30px;
+            letter-spacing: 0.080em;
+            transition: all .2s ease;
+            background: transparent; 
+        }
+        .btn:hover {
+            background-color: #12f9e3;
+            color: #250e62;
+        }
+        p{
+            color: #d9d6d6;
+            font-size: 3rem;
+            line-height: 1.2;
+        }
+        
+    }
+
+}
