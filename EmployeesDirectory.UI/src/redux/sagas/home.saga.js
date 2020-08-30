@@ -1,4 +1,4 @@
-import { all, call, fork, put, takeEvery, select } from 'redux-saga/effects';
+import { all, call, put, takeEvery, select } from 'redux-saga/effects';
 import {
     FETCH_EMPLOYEES,
     FETCH_EMPLOYEES_FAILED,

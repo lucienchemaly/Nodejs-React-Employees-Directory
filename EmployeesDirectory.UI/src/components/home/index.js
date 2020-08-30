@@ -10,7 +10,6 @@ import {
   withStyles,
 } from "@material-ui/core/styles";
 import {
-  Column,
   FilteringState,
   GroupingState,
   IntegratedFiltering,
@@ -33,7 +32,6 @@ import {
   TableFilterRow,
   TableGroupRow,
   TableHeaderRow,
-  TableSelection,
   Toolbar,
   TableEditRow,
   TableEditColumn,
@@ -113,7 +111,7 @@ class HomeComponent extends Component {
     return (
       <div className={classes.detailsContainer}>
         <div className={classes.imgContainer}>
-          <img src={row.imageUrl} alt="Profile Image" className={classes.profileImg} ></img>        
+          <img src={row.imageUrl} alt="Profile Image" className={classes.profileImg} />  
         </div>
         <div className={classes.centerTextCol}>
           <Box pl={2}>
