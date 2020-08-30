@@ -2,7 +2,10 @@ import * as React from "react";
 import { Component } from 'react';
 import MaterialGrid from "@material-ui/core/Grid";
 import Box from '@material-ui/core/Box';
-import { fetchEmployees } from "../../redux/actions/home.actions";
+import { fetchEmployees,
+        addEmployee,
+        updateEmployee,
+        deleteEmployee } from "../../redux/actions/home.actions";
 import {
   withStyles,
 } from "@material-ui/core/styles";
@@ -75,8 +78,6 @@ class HomeComponent extends Component {
     this.setState({ list:this.props.list.list });
   }
 
-
-
   componentWillReceiveProps(nextProps) {
     this.setState({list: nextProps.list.list})
   }
@@ -85,24 +86,10 @@ class HomeComponent extends Component {
     this.setState({ list:this.props.list })
   }
 
-
-
   commitChanges({ added, changed, deleted }){
-    let changedRows;
     let employeesList = this.state.list;
-
-console.log(employeesList);
-     console.log(added, changed, deleted);
     if (added) {
-      console.log("added");
-      // const startingAddedId = employeesList.length > 0 ? employeesList[employeesList.length - 1].id + 1 : 0;
-      // changedRows = [
-      //   ...employeesList,
-      //   ...added.map((row, index) => ({
-      //     id: startingAddedId + index,
-      //     ...row,
-      //   })),
-      // ];
+      this.props.dispatch(addEmployee(added[0]));  
     }
      if (changed) {
       const first =0;
@@ -111,22 +98,18 @@ console.log(employeesList);
       properties.forEach(propertyName => {
         employeesList[key][propertyName] = changed[key][propertyName];
       });
-
-
-      console.log(employeesList[key], "employeessss ");
+      this.props.dispatch(updateEmployee(employeesList[key]));
     }
     if (deleted) {
-      console.log("deleted");
-      //const deletedSet = new Set(deleted);
-      //changedRows = this.state.list.filter(row => !deletedSet.has(row.id));
+      const first = 0;
+      const deletedId = this.state.list[deleted[first]].id;
+      this.props.dispatch(deleteEmployee({id:deletedId}))
     }
-    //setRows(changedRows);
     this.setState( {list : employeesList})
   };
 
   RowDetail({ row }){
     const { classes } = this.props;
-    console.log(row, "towwwww");
     return (
       <div className={classes.detailsContainer}>
         <div className={classes.imgContainer}>
@@ -178,16 +161,13 @@ render(){
   ];
   const pageSizes = [5, 10, 15];
   const { classes, list } = this.props;
-
-  
-  
   return (
     <div>
       {list.loaded ?
         <div className={classes.root}>          
           <MaterialGrid container spacing={2}>
             <MaterialGrid item xs={12}>
-              <Grid rows={list.list} columns={columns}>
+              <Grid rows={this.state.list} columns={columns}>
                 <FilteringState
                   defaultFilters={[
                     // example { columnName: "saleDate", value: "2016-02" }
