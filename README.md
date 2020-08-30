@@ -98,9 +98,9 @@ $ npm i
 <br />
 **Run**
 ```bash
-$ npx sequelize db:migrate #data migration
-$ npx sequelize db:seed:all #mock data to play with
-$ npm start # classic start OR 
+$ npx sequelize db:migrate
+$ npx sequelize db:seed:all
+$ npm start
 ```
 
 # Employee Directory UI
