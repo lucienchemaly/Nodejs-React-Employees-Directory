@@ -1,14 +1,15 @@
 
-# Employee Directory API
+# Employee Directory Application - Reactjs, NodeJs 
+
+
+
+
+
+
+## Backend NodeJs 
 This project was built using the nodejs-starter seed project.
 [Nodejs Starter](https://appseed.us/boilerplate-code/nodejs-starter)
-
 <br />
-
-> Enjoy this project? **Join our efforts** to actively support the open-source ecosystem via a **[PayPal.me donation](https://paypal.me/appseed)**. Thank you!
-
-<br />
-
 ![Open-Source Nodejs Starter - Product cover image.](https://github.com/app-generator/static/blob/master/products/boilerplate-code-nodejs-starter-cover.jpg?raw=true) 
 
 <br />
@@ -102,3 +103,17 @@ $ npx sequelize db:seed:all #mock data to play with
 $ npm start # classic start OR 
 ```
 
+# Employee Directory UI
+   This project was built using reactjs, devexpress, redux and sagas.
+<br />
+
+<br />
+
+## Scripts
+## Go to the EmployeesDirectory.UI , then type the following commands
+**Install Modules**
+```bash
+$ npm i
+$ npm start build-dev #run the react ui server with eslint enabled
+```
+<br>
