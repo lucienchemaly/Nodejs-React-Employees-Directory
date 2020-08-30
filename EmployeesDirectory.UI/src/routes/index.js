@@ -39,10 +39,9 @@ class index extends Component {
     render() {
         return (
             <div>
-                {/* <Switch > 
-                    <Route path="/" exact component={Home} /> 
-                </Switch> */}
-            <Home></Home>
+                <Switch > 
+                    <Route path="/home" exact component={Home} /> 
+                </Switch>
             </div>
         );
     }

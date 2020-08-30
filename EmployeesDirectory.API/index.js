@@ -30,7 +30,7 @@ require('./config/passport');
 /* Here we define the api routes */
 app.use(require('./src/app/routes'));
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 const address = process.env.SERVER_ADDRESS || '127.0.0.1';
 
 /* Create everything automatically with sequelize ORM */

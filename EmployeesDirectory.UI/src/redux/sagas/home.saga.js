@@ -1,32 +1,31 @@
 import { all, call, fork, put, takeEvery, select } from 'redux-saga/effects';
 import {
-    FETCH_DATA,
-    FETCH_DATA_FAILED,
-    FETCH_DATA_SUCCESS,
-    
+    FETCH_EMPLOYEES,
+    FETCH_EMPLOYEES_FAILED,
+    FETCH_EMPLOYEES_SUCCESS,  
 } from '../actions/actions-types';
 import { getEmployeesList } from '../../datasource/home.datasource'
 
 const getDataState = (state) => state.home;
 
-function* fetchEmployees() {
+function* fetchEmployees(action) {
     try {
         let dataState = yield select(getDataState);
-        if (!dataState.data.loaded) {
+        if (!dataState.loaded) {
             const response = yield call(getEmployeesList); 
-            yield put({ type: FETCH_DATA_SUCCESS, payload: { data: response } });
+            yield put({ type: FETCH_EMPLOYEES_SUCCESS, payload: { list: response.data } });
         }
-
     } catch (error) {
-        yield put({ type: FETCH_DATA_FAILED, payload: { data:error } });
+        yield put({ type: FETCH_EMPLOYEES_FAILED, payload: { data:error } });
     }
 }
 
 function* fetchEmployeesSaga() {
-    yield takeEvery(FETCH_DATA, fetchEmployees);
+    yield takeEvery(FETCH_EMPLOYEES, fetchEmployees);
 }
 
-
 export default function* rootSaga() {
-    yield all([fork(fetchEmployeesSaga)]);
+    yield all([
+        fetchEmployeesSaga(),
+    ]);
 }

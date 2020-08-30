@@ -8,6 +8,7 @@ module.exports = {
   },
   output: {
     filename: "bundle.js",
+    publicPath: process.env.Public_Path,
   },
   module: {
     rules: [
@@ -17,5 +18,10 @@ module.exports = {
       },
     ],
   },
-  plugins: [new UglifyJsPlugin()],
+  plugins: [
+    new UglifyJsPlugin(),
+    new webpack.DefinePlugin({
+      'process.env.Public_Path': JSON.stringify(Public_Path),
+    }),
+  ],
 }

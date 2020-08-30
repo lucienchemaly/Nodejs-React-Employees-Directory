@@ -7,24 +7,18 @@ const styles = ()=>({
 });
 
 class HomeContainer extends Component {
-    componentDidMount() {
-    }
     render() {
-        const { list } = this.props.data;
-        console.log(list, "this is the list");
+        const { home } = this.props;
         return (
             <div >
-                 <HomeComponent list={list} dispatch={this.props.dispatch}></HomeComponent>   
+                <HomeComponent list={home} dispatch={this.props.dispatch}></HomeComponent>                  
             </div>
-
         );
     }
 }
 function mapPropsToState({ home }) {
-    const { data } = home;
-    return { data };
+    return { home };
 }
-
 
 const mapDispatchToProps = dispatch => ({
     dispatch

@@ -1,7 +1,7 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('Employees', {
+    return queryInterface.createTable('Employee', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -9,18 +9,20 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       firstName: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false
       },
       lastName: {
         type: Sequelize.STRING,
+        allowNull: false
       },
       email: {
         type: Sequelize.STRING,
-        allowNull: true
+        allowNull: false
       },
       dob: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: true
       },
       phoneNumber: {
         type: Sequelize.STRING,
@@ -30,15 +32,23 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: true
       },
+      department: {
+        type: Sequelize.STRING,
+        allowNull: true
+      },
+      imageUrl: {
+        type: Sequelize.STRING,
+        allowNull: true
+      },
       prefix:{
         type: Sequelize.STRING,
       },
       createdAt: {
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.DATE
       },
       updatedAt: {
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.DATE
       },
     });

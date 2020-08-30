@@ -1,5 +1,5 @@
-import { FETCH_DATA } from "./actions-types";
+import { FETCH_EMPLOYEES } from "./actions-types";
 
-export function fetchEmployees(request) {
-    return { type: FETCH_DATA, payload: request };
+export function fetchEmployees() {
+    return { type: FETCH_EMPLOYEES };
 }

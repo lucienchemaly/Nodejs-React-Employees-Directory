@@ -1,33 +1,30 @@
 import {
-    FETCH_DATA,
-    FETCH_DATA_SUCCESS,
-    FETCH_DATA_FAILED,
+    FETCH_EMPLOYEES,
+    FETCH_EMPLOYEES_SUCCESS,
+    FETCH_EMPLOYEES_FAILED,
 } from '../actions/actions-types';
 
 
 const initialState = { 
-    
-    data: {
-        loaded: false,
-        loading: false,
-        list: {}
-    }
+    loaded: false,
+    loading: false,
+    list: []
 }
 
 
 export default function homeReducer(state = initialState, action) {
     switch (action.type) {
-        case FETCH_DATA: {
-            return { ...state, data: { ...state.data, loaded: false, loading: true, list: [] } }
+        case FETCH_EMPLOYEES: {
+            return { ...state, loaded: false, loading: true, list: [] }
 
         }
-        case FETCH_DATA_SUCCESS: {
-            return { ...state, data: { ...state.data, loaded: true, loading: false, list: action.payload } }
+        case FETCH_EMPLOYEES_SUCCESS: {
+            return { ...state, loaded: true, loading: false, list: action.payload.list  }
 
         }
 
-        case FETCH_DATA_FAILED: {
-            return { ...state, data: { ...state.data, loaded: false, loading: false , list:action.payload} }
+        case FETCH_EMPLOYEES_FAILED: {
+            return { ...state, loaded: false, loading: false , list:[], error: action.payload.response }
         }
         default:
             return state
