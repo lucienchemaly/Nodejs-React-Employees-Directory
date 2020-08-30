@@ -26,13 +26,9 @@ const employeeSchema = Joi.object().keys({
 
 /* GET list route */
 router.get('/list', (req, res, next) => {
-
 	Employee.findAll().then(employees => {
-
 		return res.status(200).json( employees );
 	})
-
 });
-
 
 module.exports = router;
