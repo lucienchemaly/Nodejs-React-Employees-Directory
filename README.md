@@ -93,11 +93,7 @@ SERVER_ADDRESS=127.0.0.1 // or 0.0.0.0 for all or other interface address you wa
 ## Go to the EmployeesDirectory.API , then type the following commands
 **Install Modules**
 ```bash
-$ npm i
-```
-<br />
-**Run**
-```bash
+$ npm i  #installing npm libraries
 $ npx sequelize db:migrate #data migration
 $ npx sequelize db:seed:all #mock data to play with
 $ npm start # classic start OR 
@@ -113,7 +109,7 @@ $ npm start # classic start OR
 ## Go to the EmployeesDirectory.UI , then type the following commands
 **Install Modules**
 ```bash
-$ npm i
+$ npm i #installing npm libraries
 $ npm start build-dev #run the react ui server with eslint enabled
 ```
 <br>

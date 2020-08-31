@@ -37,6 +37,7 @@ export function editEmployee(employee) {
  * @param {Object} employee 
  */
 export function createEmployee(employee) {
+    console.log(employee, "create employeee");
     return axios.post("api/employees", employee)
        .then(function (response) {
            console.log('response', response)

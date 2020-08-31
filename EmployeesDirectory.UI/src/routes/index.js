@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Switch } from 'react-router-dom'
+import { Route, Switch, Redirect } from 'react-router-dom'
 import Loadable from 'react-loadable'
 import loaderGif from '../assests/images/loader.gif'
 import store from '../redux/store'
@@ -40,6 +40,9 @@ class index extends Component {
         return (
             <div>
                 <Switch > 
+                    <Route path="/" exact component={Home} >
+                        <Redirect to="/home" exact component={Home}/>
+                    </Route> 
                     <Route path="/home" exact component={Home} /> 
                 </Switch>
             </div>

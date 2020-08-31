@@ -2,6 +2,7 @@ import * as React from "react";
 import { Component } from 'react';
 import MaterialGrid from "@material-ui/core/Grid";
 import Box from '@material-ui/core/Box';
+import Typography from '@material-ui/core/Typography';
 import { fetchEmployees,
         addEmployee,
         updateEmployee,
@@ -61,7 +62,13 @@ const useStyles = (theme) => ({
   centerTextCol:{
     marginTop: "auto",
     marginBottom: "auto",
-  }
+  },
+  loader: {
+    display: 'flex',
+    '& > * + *': {
+      marginLeft: theme.spacing(2),
+    },
+  },
 });
 
 class HomeComponent extends Component {
@@ -216,9 +223,11 @@ render(){
           </MaterialGrid>  
         </div>
       : list.loading ? 
-        <div>Loading Employees list...</div>
+        <Typography variant="h5">
+            <div>Loading...</div>
+        </Typography>
       :
-        <div>Employees list not available...</div>
+        <Typography variant="h5">Employees list not available...</Typography>
       } 
     </div>
   );
