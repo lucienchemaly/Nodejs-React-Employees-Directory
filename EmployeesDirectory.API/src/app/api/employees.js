@@ -58,7 +58,6 @@ router.post('/',  async (req, res ) => {
         const employee = await Employee.create(req.body);
         return res.json({ employee });
     }catch(e){
-        return res.status(500).json({
             errors: e
 		});
     }
@@ -82,7 +81,7 @@ router.put('/',  async (req, res ) => {
                 firstName: req.body.firstName,
                 lastName: req.body.lastName,
                 jobTitle: req.body.jobTitle,
-                honeNumber: req.body.phoneNumber,
+                phoneNumber: req.body.phoneNumber,
                 department: req.body.department
             },
             {returning: true, where: {id: req.body.id} }

@@ -22,7 +22,6 @@ module.exports = {
     }
     return queryInterface.bulkInsert('Employees', testEmployees, {});
   },
-
   down: (queryInterface, Sequelize) => {
       return queryInterface.bulkDelete('Employees', null, {});
   }
